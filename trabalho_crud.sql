@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/10/2023 às 14:35
+-- Tempo de geração: 21/10/2023 às 15:40
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `animal`
+--
+
+CREATE TABLE `animal` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `NOME` varchar(50) DEFAULT NULL,
+  `RACA` varchar(50) DEFAULT NULL,
+  `PROPRIETARIO` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `animal`
+--
+
+INSERT INTO `animal` (`ID`, `NOME`, `RACA`, `PROPRIETARIO`) VALUES
+(1, 'Jake', 'Pinscher', 'Cleisson'),
+(3, 'Rex', 'Pastor Alemão', 'Danilo');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `pessoa`
 --
 
@@ -40,7 +61,8 @@ CREATE TABLE `pessoa` (
 
 INSERT INTO `pessoa` (`ID`, `NOME`, `EMAIL`, `CPF`) VALUES
 (1, 'Maria', 'maria@teste.com', '48875500998'),
-(2, 'LuffyGear5', 'luffy@teste.com', '1231231231231');
+(2, 'LuffyGear5', 'luffy@teste.com', '1231231231231'),
+(3, 'Naruto', 'naruto@teste.com', '12312312312312');
 
 -- --------------------------------------------------------
 
@@ -68,6 +90,13 @@ INSERT INTO `produto` (`ID`, `NOME`, `TIPO`, `CODIGO`) VALUES
 --
 
 --
+-- Índices de tabela `animal`
+--
+ALTER TABLE `animal`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`);
+
+--
 -- Índices de tabela `pessoa`
 --
 ALTER TABLE `pessoa`
@@ -86,10 +115,16 @@ ALTER TABLE `produto`
 --
 
 --
+-- AUTO_INCREMENT de tabela `animal`
+--
+ALTER TABLE `animal`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de tabela `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
